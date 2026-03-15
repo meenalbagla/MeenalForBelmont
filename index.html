@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meenal Bagla for Belmont Town Meeting – Precinct 8</title>
+  <style>
+    :root {
+      --navy:       #1e1a4a;
+      --blue:       #3D348B;
+      --blue-mid:   #5C4DB1;
+      --light-blue: #d4d0f0;
+      --amber:      #F7B731;
+      --amber-dark: #d49a10;
+      --white:      #ffffff;
+      --light-gray: #f6f5fc;
+      --text:       #2d2d2d;
+      --text-light: #555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a { color: var(--blue-mid); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 960px;
+      margin: 0 auto;
+      min-height: 360px;
+      align-items: center;
+    }
+
+    .hero-content {
+      padding: 52px 36px 52px 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #b8b0e8;
+      margin-bottom: 24px;
+    }
+
+    .hero-logo-svg {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 28px;
+    }
+
+    .vote-info {
+      font-size: 0.78rem;
+      color: #b8b0e8;
+      letter-spacing: 0.06em;
+      line-height: 1.9;
+    }
+    .vote-info strong {
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    /* Photo column */
+    .hero-photo {
+      position: relative;
+      align-self: stretch;
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 115%;
+      object-fit: cover;
+      object-position: top center;
+      mix-blend-mode: luminosity;
+      opacity: 0.88;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28%);
+      mask-image: linear-gradient(to right, transparent 0%, black 28%);
+    }
+
+    @media (max-width: 660px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo  { display: none; }
+      .hero-content { padding: 44px 24px; }
+    }
+
+    /* ── NAV ──────────────────────────────────────────────── */
+    nav {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-top: 3px solid var(--amber);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0 16px;
+    }
+
+    nav ul li a {
+      display: block;
+      color: var(--white);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 18px;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: var(--amber);
+      border-bottom-color: var(--amber);
+      text-decoration: none;
+    }
+
+    /* Secondary nav item (Contact) */
+    nav ul li.nav-secondary {
+      border-left: 1px solid rgba(255,255,255,0.12);
+      margin-left: 6px;
+      padding-left: 6px;
+    }
+    nav ul li.nav-secondary a {
+      color: #9088c8;
+      font-weight: normal;
+      font-size: 0.76rem;
+    }
+    nav ul li.nav-secondary a:hover {
+      color: #c0b8e8;
+      border-bottom-color: transparent;
+    }
+
+    /* ── LAYOUT ───────────────────────────────────────────── */
+    section { padding: 40px 24px; }
+
+    section:nth-child(even) { background: var(--light-gray); }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-dark);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-blue);
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--navy);
+      font-weight: normal;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--light-blue);
+    }
+
+    p { margin-bottom: 1em; color: var(--text-light); }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── ABOUT ────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-grid > div:first-child { order: 2; }
+      .about-grid > div:last-child  { order: 1; }
+    }
+
+    .about-text p { font-size: 1.02rem; }
+
+    .about-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* ── INVOLVEMENT ──────────────────────────────────────── */
+    .involvement-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97rem;
+    }
+
+    .involvement-table tr + tr td {
+      border-top: 1px solid #e0dcf5;
+    }
+
+    .involvement-table td {
+      padding: 10px 12px 10px 0;
+      vertical-align: top;
+      color: var(--text-light);
+    }
+
+    .involvement-table td:first-child {
+      font-weight: bold;
+      color: var(--text);
+      white-space: nowrap;
+      padding-right: 20px;
+    }
+
+    .involvement-table td:nth-child(2) { width: 100%; }
+
+    .involvement-table td:last-child {
+      white-space: nowrap;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      color: var(--blue-mid);
+      padding-left: 20px;
+    }
+
+    @media (max-width: 540px) {
+      .involvement-table,
+      .involvement-table tbody,
+      .involvement-table tr,
+      .involvement-table td { display: block; }
+      .involvement-table td:last-child { padding: 0 0 10px 0; font-size: 0.78rem; }
+    }
+
+    /* ── PRIORITIES ───────────────────────────────────────── */
+    .priority-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .priority-card {
+      background: var(--white);
+      border-top: 4px solid var(--blue);
+      border-radius: 6px;
+      padding: 18px 16px;
+      box-shadow: 0 2px 12px rgba(61,52,139,0.10);
+    }
+
+    .priority-icon { font-size: 1.4rem; margin-bottom: 8px; }
+
+    .priority-card h3 {
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .priority-card p { font-size: 0.92rem; margin: 0; }
+
+    /* ── PHOTOS ───────────────────────────────────────────── */
+    .photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 500px) { .photo-row { grid-template-columns: 1fr; } }
+
+    .photo-placeholder {
+      background: var(--light-blue);
+      border: 2px dashed #9b92d8;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      color: var(--blue);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 24px;
+      gap: 10px;
+    }
+    .photo-placeholder svg { opacity: 0.4; }
+
+    /* ── CONTACT ──────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--light-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .contact-item h4 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-mid);
+      margin-bottom: 4px;
+    }
+
+    .contact-item p { margin: 0; font-size: 1rem; color: var(--text); }
+
+    .vote-box {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      border-radius: 10px;
+      padding: 30px 26px;
+      text-align: center;
+    }
+
+    .vote-box h3 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .vote-box p { color: #c0b8e8; margin-bottom: 6px; font-size: 0.93rem; }
+
+    .vote-box .date {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--amber);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 10px 0;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: #9b92cc;
+      text-align: center;
+      padding: 26px 24px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    footer strong { color: var(--white); }
+    footer a { color: #9b92cc; }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ──────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-inner">
+
+      <!-- Left: content -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">Belmont Town Meeting &nbsp;·&nbsp; Precinct 8</p>
+
+        <!-- Logo: diagonal badge + name -->
+        <svg class="hero-logo-svg" viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meenal Bagla, Ballot #12">
+          <!-- Amber diagonal badge -->
+          <polygon points="0,0 86,0 73,90 -13,90" fill="#F7B731"/>
+          <!-- Subtle dark edge on right side of badge -->
+          <line x1="86" y1="0" x2="73" y2="90" stroke="rgba(0,0,0,0.12)" stroke-width="2"/>
+          <!-- BALLOT label -->
+          <text x="37" y="17" text-anchor="middle" fill="#1e1a4a"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700" font-size="7" letter-spacing="2">BALLOT</text>
+          <!-- # symbol -->
+          <text x="16" y="38" fill="#1e1a4a"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="900" font-size="14">#</text>
+          <!-- 12 -->
+          <text x="6" y="80" fill="#1e1a4a"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="900" font-size="52" letter-spacing="-2">12</text>
+          <!-- Thin diagonal accent gap -->
+          <line x1="89" y1="2" x2="76" y2="88" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <!-- MEENAL -->
+          <text x="100" y="42" fill="#ffffff"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="800" font-size="26" letter-spacing="3">MEENAL</text>
+          <!-- BAGLA -->
+          <text x="101" y="72" fill="#F7B731"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="300" font-size="26" letter-spacing="7">BAGLA</text>
+          <!-- Amber baseline accent -->
+          <line x1="100" y1="80" x2="284" y2="80" stroke="#F7B731" stroke-width="1.5" opacity="0.5"/>
+        </svg>
+
+        <p class="vote-info">
+          <strong>Vote April 7th</strong><br/>
+          7 am – 8 pm &nbsp;·&nbsp; Winn Brook School Gym<br/>
+          Mail-in ballot available
+        </p>
+      </div>
+
+      <!-- Right: blended photo -->
+      <div class="hero-photo">
+        <img src="Meenal Profile.jpg" alt="Meenal Bagla" />
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── NAV ───────────────────────────────────────────── -->
+  <nav>
+    <ul>
+      <li><a href="#involvement">Schools &amp; PTA</a></li>
+      <li><a href="#priorities">Fiscal Stewardship</a></li>
+      <li><a href="#about">Community</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li class="nav-secondary"><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── ABOUT ─────────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About the Candidate</p>
+      <p>
+        I chose to make Belmont my home and have been deeply engaged in our schools and
+        community as a parent of two Belmont Public Schools students.
+        Professionally, I'm a management consultant who drives growth and transformation
+        through data, rigorous analysis, and building alignment across diverse teams—
+        skills I'd put to work directly at Town Meeting.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── INVOLVEMENT ───────────────────────────────────── -->
+  <section id="involvement">
+    <div class="container">
+      <p class="section-label">Community Involvement</p>
+      <table class="involvement-table">
+        <tbody>
+          <tr>
+            <td>Co-President</td>
+            <td>Winn Brook Elementary PTA</td>
+            <td>2024–2025</td>
+          </tr>
+          <tr>
+            <td>Co-Vice President</td>
+            <td>Winn Brook Elementary PTA</td>
+            <td>2023–2024</td>
+          </tr>
+          <tr>
+            <td>Secretary</td>
+            <td>Winn Brook Elementary PTA</td>
+            <td>2022–2023</td>
+          </tr>
+          <tr>
+            <td>Parent Representative</td>
+            <td>Winn Brook Principal Search Committee</td>
+            <td>2023 &amp; 2024</td>
+          </tr>
+          <tr>
+            <td>Member</td>
+            <td>CUE Report Card Working Group</td>
+            <td>2025–2026</td>
+          </tr>
+          <tr>
+            <td>Neighborhood Organizer</td>
+            <td>Block &amp; Neighborhood Parties, Precinct 8</td>
+            <td>2022–present</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── PRIORITIES ────────────────────────────────────── -->
+  <section id="priorities">
+    <div class="container">
+      <p class="section-label">Priorities</p>
+      <div class="priority-cards">
+
+        <div class="priority-card">
+          <div class="priority-icon">🎓</div>
+          <h3>Education Excellence</h3>
+          <p>Top-quality schools for every Belmont student.</p>
+        </div>
+
+        <div class="priority-card">
+          <div class="priority-icon">💰</div>
+          <h3>Financial Sustainability</h3>
+          <p>Responsible cost management and diversified revenue sources.</p>
+        </div>
+
+        <div class="priority-card">
+          <div class="priority-icon">🤝</div>
+          <h3>Civic Engagement</h3>
+          <p>Broader participation so Town Meeting reflects all of Belmont.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHOTOS ────────────────────────────────────────── -->
+  <section id="photos">
+    <div class="container">
+      <p class="section-label">Photos</p>
+      <div class="photo-row">
+
+        <!-- Replace with: <img src="photo1.jpg" alt="Meenal Bagla" style="width:100%;height:300px;object-fit:cover;border-radius:8px;display:block;"> -->
+        <div class="photo-placeholder" style="min-height:300px;">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Photo of Meenal<br/><small>Replace with &lt;img&gt; tag</small></span>
+        </div>
+
+        <div class="photo-placeholder" style="min-height:300px;">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/>
+            <path d="M2 20c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5"/>
+            <path d="M16 14.5c1.2-.3 2.5.1 3.5 1s1.5 2.2 1.5 3.5"/>
+          </svg>
+          <span>Family photo<br/><small>Replace with &lt;img&gt; tag</small></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in Touch &amp; Vote</p>
+      <div class="contact-grid">
+
+        <div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:9175877430">917-587-7430</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:meenalbagla@gmail.com">meenalbagla@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>275 Brighton Street<br/>Belmont, MA 02478</p>
+            </div>
+          </div>
+          <p style="font-size:0.93rem;">
+            Have a question or want to help spread the word? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="vote-box">
+          <h3>Election Day is Coming!</h3>
+          <div class="date">April 7, 2026</div>
+          <p>7 am – 8 pm</p>
+          <p><strong style="color:#fff;">Winn Brook School Gym</strong></p>
+          <p>for Precinct 8 voters</p>
+          <p style="margin-top:12px; font-size:0.85rem; color:#b8b0e8;">
+            Mail-in ballots also available.<br/>
+            Contact the Town Clerk's office to request yours.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────── -->
+  <footer>
+    <p>
+      <strong>Meenal Bagla</strong> for Belmont Town Meeting, Precinct 8
+      &nbsp;·&nbsp; 275 Brighton Street, Belmont, MA 02478
+      &nbsp;·&nbsp; <a href="tel:9175877430">917-587-7430</a>
+    </p>
+    <p style="margin-top:8px; opacity:0.65;">Paid for by the Committee to Elect Meenal Bagla</p>
+  </footer>
+
+</body>
+</html>
