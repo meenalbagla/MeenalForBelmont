@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meenal Bagla for Belmont Town Meeting – Precinct 8</title>
+  <link href="https://fonts.googleapis.com/css2?family=Simonetta&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy:       #606495;
@@ -18,10 +19,11 @@
       --text-light: #555;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-style: normal; }
+    em, i, cite, dfn, address { font-style: normal; }
 
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Simonetta', serif;
       color: var(--text);
       background: var(--white);
       line-height: 1.7;
@@ -32,10 +34,27 @@
 
     /* ── HERO ─────────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      background: var(--navy);
       color: var(--white);
       overflow: hidden;
       position: relative;
+    }
+
+    /* ── DECORATIVE SQUIGGLES ──────────────────────────── */
+    .hero-squiggle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-squiggle--amber {
+      width: 240px;
+      top: -80px;
+      right: -80px;
+    }
+    .hero-squiggle--red {
+      width: 180px;
+      bottom: -110px;
+      left: 40%;
     }
 
     .hero-inner {
@@ -43,8 +62,10 @@
       grid-template-columns: 1fr 1fr;
       max-width: 960px;
       margin: 0 auto;
-      min-height: 360px;
+      min-height: 380px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-content {
@@ -53,57 +74,97 @@
       z-index: 2;
     }
 
-    .hero-eyebrow {
-      font-size: 0.92rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+    .hero-vote-for {
+      font-family: 'Simonetta', serif;
+      font-style: normal;
+      font-size: 18px;
       color: #c0bedd;
-      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
     }
 
-    .hero-logo-svg {
+    .hero-name {
+      font-family: 'Simonetta', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: clamp(38px, 5.5vw, 56px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .hero-asterisk {
       display: block;
-      width: 100%;
-      max-width: 380px;
-      margin-bottom: 28px;
+      width: 54px;
+      height: 54px;
+      margin: 10px 0 14px;
+      flex-shrink: 0;
+    }
+
+    .hero-label {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #c0bedd;
+      margin-bottom: 24px;
+      line-height: 1.8;
     }
 
     .vote-info {
-      font-size: 0.98rem;
+      font-family: 'Simonetta', serif;
+      font-size: 15px;
       color: #c0bedd;
       letter-spacing: 0.06em;
       line-height: 1.9;
     }
     .vote-info strong {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       color: var(--amber);
-      font-weight: 700;
     }
 
     /* Photo column */
     .hero-photo {
       position: relative;
       align-self: stretch;
-      min-height: 360px;
-      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
     }
     .hero-photo img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 115%;
+      width: 290px;
+      height: 290px;
       object-fit: cover;
       object-position: top center;
-      mix-blend-mode: luminosity;
-      opacity: 0.88;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28%);
-      mask-image: linear-gradient(to right, transparent 0%, black 28%);
+      border-radius: 50%;
+      border: 7px solid rgba(255,255,255,0.95);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.28);
+      position: static;
+      mix-blend-mode: normal;
+      opacity: 1;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
 
     @media (max-width: 660px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo  { display: none; }
-      .hero-content { padding: 44px 24px; }
+      .hero-photo {
+        min-height: 0;
+        padding-bottom: 40px;
+      }
+      .hero-photo img {
+        width: 200px;
+        height: 200px;
+      }
+      .hero-content { padding: 44px 24px 20px; }
     }
 
     /* ── NAV ──────────────────────────────────────────────── */
@@ -126,9 +187,9 @@
     nav ul li a {
       display: block;
       color: var(--white);
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.82rem;
-      font-weight: bold;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 13px 18px;
@@ -150,8 +211,8 @@
     }
     nav ul li.nav-secondary a {
       color: #9092b2;
-      font-weight: normal;
-      font-size: 0.76rem;
+      font-weight: 400;
+      font-size: 14px;
     }
     nav ul li.nav-secondary a:hover {
       color: #abacc8;
@@ -169,8 +230,9 @@
     }
 
     .section-label {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.78rem;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--amber-dark);
@@ -181,15 +243,16 @@
     }
 
     h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 17.5px;
+      font-weight: 700;
       color: var(--navy);
-      font-weight: normal;
       margin-bottom: 18px;
       padding-bottom: 12px;
       border-bottom: 2px solid var(--light-blue);
     }
 
-    p { margin-bottom: 1em; color: var(--text-light); }
+    p { margin-bottom: 1em; color: var(--text-light); font-size: 17px; }
     p:last-child { margin-bottom: 0; }
 
     /* ── ABOUT ────────────────────────────────────────────── */
@@ -206,7 +269,7 @@
       .about-grid > div:last-child  { order: 1; }
     }
 
-    .about-text p { font-size: 1.02rem; }
+    .about-text p { font-family: 'Simonetta', serif; font-size: 18px; }
 
     .about-photo {
       width: 100%;
@@ -219,7 +282,8 @@
     .involvement-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.97rem;
+      font-family: 'Simonetta', serif;
+      font-size: 17px;
     }
 
     .involvement-table tr + tr td {
@@ -243,8 +307,9 @@
 
     .involvement-table td:last-child {
       white-space: nowrap;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.8rem;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
       color: var(--blue-mid);
       padding-left: 20px;
     }
@@ -258,31 +323,61 @@
     }
 
     /* ── PRIORITIES ───────────────────────────────────────── */
+    #priorities {
+      background: var(--navy) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    #priorities::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      background: #F0A73B;
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    #priorities .section-label {
+      color: var(--amber);
+      border-bottom-color: rgba(255,255,255,0.15);
+    }
+
     .priority-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .priority-card {
-      background: var(--white);
-      border-top: 4px solid var(--blue);
-      border-radius: 6px;
-      padding: 18px 16px;
-      box-shadow: 0 2px 12px rgba(96,100,149,0.10);
+      background: rgba(255,255,255,0.07);
+      border-top: none;
+      border-left: 3px solid var(--amber);
+      border-radius: 4px;
+      padding: 20px 18px;
+      box-shadow: none;
     }
 
-    .priority-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .priority-icon { font-size: 1.4rem; margin-bottom: 10px; }
 
     .priority-card h3 {
-      font-size: 1.05rem;
-      color: var(--navy);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--amber);
       margin-bottom: 8px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: bold;
     }
 
-    .priority-card p { font-size: 0.92rem; margin: 0; }
+    .priority-card p {
+      font-family: 'Simonetta', serif;
+      font-size: 17px;
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+    }
 
     /* ── PHOTOS ───────────────────────────────────────────── */
     .photo-carousel-wrapper {
@@ -401,15 +496,16 @@
     }
 
     .contact-item h4 {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.72rem;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--blue-mid);
       margin-bottom: 4px;
     }
 
-    .contact-item p { margin: 0; font-size: 1rem; color: var(--text); }
+    .contact-item p { margin: 0; font-size: 18px; color: var(--text); }
 
 /* ── FOOTER ───────────────────────────────────────────── */
     footer {
@@ -417,8 +513,9 @@
       color: #9092b2;
       text-align: center;
       padding: 26px 24px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.82rem;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
     }
 
     footer strong { color: var(--white); }
@@ -429,23 +526,37 @@
 
   <!-- ── HERO ──────────────────────────────────────────── -->
   <header class="hero">
+
+    <!-- Decorative squiggles (S-curves from mailer design) -->
+    <svg class="hero-squiggle hero-squiggle--amber" viewBox="0 0 240 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 240,30 C 165,45 95,100 130,162 C 165,224 95,280 240,318"
+            fill="none" stroke="#F0A73B" stroke-width="62" stroke-linecap="round"/>
+    </svg>
+    <svg class="hero-squiggle hero-squiggle--red" viewBox="0 0 180 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 90,35 C 165,35 168,130 90,180 C 12,230 15,315 90,318"
+            fill="none" stroke="#EF4341" stroke-width="62" stroke-linecap="round"/>
+    </svg>
+
     <div class="hero-inner">
 
       <!-- Left: content -->
       <div class="hero-content">
-        <p class="hero-eyebrow">Belmont Town Meeting<br/>Precinct 8</p>
+        <p class="hero-vote-for">Vote for</p>
+        <p class="hero-name">Meenal Bagla</p>
 
-        <!-- Logo: diagonal badge + name -->
-        <svg class="hero-logo-svg" viewBox="0 0 300 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meenal Bagla for Belmont Town Meeting">
-          <!-- MEENAL -->
-          <text x="0" y="44" fill="#ffffff"
-                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
-                font-weight="800" font-size="30" letter-spacing="3">MEENAL</text>
-          <!-- BAGLA -->
-          <text x="1" y="80" fill="#F0A73B"
-                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
-                font-weight="300" font-size="30" letter-spacing="7">BAGLA</text>
+        <!-- Asterisk burst (from mailer) -->
+        <svg class="hero-asterisk" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="30" y1="4"  x2="30" y2="56" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="4"  y1="30" x2="56" y2="30" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="11" y1="11" x2="49" y2="49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="49" y1="11" x2="11" y2="49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
         </svg>
+
+        <p class="hero-label">
+          Town Meeting Candidate<br/>
+          Precinct 8<br/>
+          <a href="https://www.meenalbagla.com" style="color:inherit; text-decoration:none;">www.meenalbagla.com</a>
+        </p>
 
         <p class="vote-info">
           <strong>Vote April 7th</strong><br/>
@@ -454,7 +565,7 @@
         </p>
       </div>
 
-      <!-- Right: blended photo -->
+      <!-- Right: circular photo -->
       <div class="hero-photo">
         <img src="Meenal Profile.jpg" alt="Meenal Bagla" />
       </div>
@@ -581,14 +692,13 @@
   <!-- ── CONTACT ───────────────────────────────────────── -->
   <section id="contact">
     <div class="container">
-      <p class="section-label">Get in Touch &amp; Vote</p>
+      <p class="section-label">Get in Touch</p>
       <p style="font-size:0.93rem; margin-bottom:16px;">
         Have a question or want to help spread the word? I'd love to hear from you.
       </p>
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
         <div>
-          <h4>Email</h4>
           <p><a href="mailto:meenalbagla@gmail.com">meenalbagla@gmail.com</a></p>
         </div>
       </div>
